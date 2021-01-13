@@ -23,22 +23,24 @@ slab1_img = loadImage("slab.png")
 slabG = new Group();
 vol_slabG= new Group();
 
-enemy1Img = loadImage("pic.png")
-enemy2Img = loadImage("pic.png")
-enemy3Img = loadImage("pic.png")
+playerFire= loadImage("playerfire.png")
+
+enemy1Img = loadImage("enimies.png")
+enemy2Img = loadImage("enimies.png")
+enemy3Img = loadImage("enimies.png")
 }
 
 function setup() {
   createCanvas(displayWidth-10,displayHeight-166);
 
 //   // CREATE fLOOR
-//   for(var x=-1000; x <2000; x+=400){
-//   for(var y=-2000; y< 1000; y+=400){
-//  tile1 = createSprite(x,y)
-//  tile1.addImage(tile1Img)
-//  tile1.scale = 5
-//   }
-// }
+  for(var x=-1000; x <2000; x+=400){
+  for(var y=-2000; y< 1000; y+=400){
+ tile1 = createSprite(x,y)
+ tile1.addImage(tile1Img)
+ tile1.scale = 5
+  }
+}
 
 //CREATE SLABS
 
@@ -79,8 +81,9 @@ slab_1 = createSprite(1050,515)
 slab_1.addImage(slab_img)
 slab_1.scale=1.3
 
-enemy1= createSprite(1050,615)
-enemy1.addImage(sprite_img)
+enemy1= createSprite(1250,415)
+enemy1.addImage(enemy1Img )
+enemy1.scale= 0.5
 
 box6= createSprite(-200,-340);
 box6.addImage(slabImg)
@@ -90,8 +93,9 @@ box7= createSprite(800,-300);
 box7.addImage(slabImg)
 box7.debug = true
 
-enemy2= createSprite(800,-615)
-enemy2.addImage(sprite_img)
+enemy2= createSprite(1150,-405)
+enemy2.addImage(enemy1Img )
+enemy2.scale= 0.5
 
 
 box8= createSprite(800,-460);
@@ -193,7 +197,8 @@ function draw() {
   }
   if (keyDown("left")) {
     sprite.x = sprite.x-30;
-    sprite.mirrorX(-1);    
+    sprite.mirrorX(-1); 
+    sprite.rotattion =90   
   }
 
   if (keyDown("up")) {
@@ -202,14 +207,45 @@ function draw() {
   }
   if (keyDown("down")) {
     sprite.y = sprite.y+30;
-    sprite.mirrorY(-1);    
+    sprite.mirrorY(-1);
+       
   }
-  if (keyDown("A")) {
+  if (keyDown("z")) {
     camera.zoom = camera.zoom - 0.1;
   }
   if (keyDown("S")) {
     camera.zoom = camera.zoom + 0.1;
   } 
+
+  //up- q   right- d,left-a up-q down-e
+
+  if(keyDown("q")){
+    var shot = createSprite(sprite.x, sprite.y)
+    shot.velocityY = -5
+    shot.addImage(playerFire)
+    shot.scale = 0.4
+  }
+
+  if(keyDown("d")){
+    var shot = createSprite(sprite.x, sprite.y)
+    shot.velocityX = 5
+    shot.addImage(playerFire)
+    shot.scale = 0.4
+  }
+
+  if(keyDown("a")){
+    var shot = createSprite(sprite.x, sprite.y)
+    shot.velocityX = -5
+    shot.addImage(playerFire)
+    shot.scale = 0.4
+  }
+
+  if(keyDown("e")){
+    var shot = createSprite(sprite.x, sprite.y)
+    shot.velocityY = 5
+    shot.addImage(playerFire)
+    shot.scale = 0.4
+  }
 //MAP VIEW
   // if (camera.isActive()) {
   //   camera.x = World.mouseX;
@@ -236,4 +272,5 @@ function draw() {
 //   }
 // }
 
+//up- q  e-d right- dleft-a up-q down-e
 
