@@ -98,7 +98,7 @@ box8= createSprite(800,-460);
 box8.addImage(slabImg)
 box8.debug = true
 
-box9= createSprite(10,-1200)
+box9= createSprite(-45,-860)
 box9.addImage(slabImg)
 box9.debug = true
 
@@ -110,23 +110,27 @@ slab_3.scale=1.3
  box10.addImage(slabImg)
  box10.debug = true
 
- box11= createSprite(1000,-1200)
+ box11= createSprite(1230,-300)
  box11.addImage(slabImg)
  box11.debug = true
 
- box12= createSprite(-190,-1700)
+ box12= createSprite(-190,-1320)
  box12.addImage(slabImg)
  box12.debug = true
 
- //box13= createSprite(1200,-1700)
- //box13.addImage(slabImg)
+slab_5 = createSprite(-60,-1200)
+slab_5.addImage(slab1_img)
+slab_5.scale=1.3
 
- box14= createSprite(1100,-2100)
+ box14= createSprite(1100,-1880)
  box14.addImage(slabImg)
  box14.debug = true
 
+slab_4 = createSprite(99,-720)
+slab_4.addImage(slab_img)
+slab_4.scale=1.3
 
- box15= createSprite(1300,-2100)
+ box15= createSprite(1300,-1880)
  box15.addImage(slabImg)
  box15.debug = true
 
@@ -162,6 +166,22 @@ function draw() {
   sprite.collide(box11)
 
   sprite.collide(box12)
+
+  sprite.collide(box14)
+
+  sprite.collide(box15)
+
+  sprite.collide(slab_5)
+
+  sprite.collide(slab_4)
+
+  sprite.collide(slab_3)
+
+  sprite.collide(slab_1)
+
+  sprite.collide(slab_2)
+
+  
 
   //sprite.collide(box1)
 
